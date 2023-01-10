@@ -2,7 +2,7 @@
 
 ## setup
 1. **install or upgrade node version**
-to install: https://nodejs.org/en/download/\ 
+to install: https://nodejs.org/en/download/ \ 
 to check version, run in terminal:\
 `node -v`\
 `npm --version`
