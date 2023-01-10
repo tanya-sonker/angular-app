@@ -2,9 +2,9 @@
 
 ## setup
 1. **install or upgrade node version**
-to install, click [here|https://nodejs.org/en/download/] 
-to check version, run in terminal:
-`node -v`
+to install: https://nodejs.org/en/download/\ 
+to check version, run in terminal:\
+`node -v`\
 `npm --version`
 to upgrade, run in terminal:
 `sudo npm cache clean -f`
