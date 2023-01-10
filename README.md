@@ -1,7 +1,7 @@
 # angular-app
 
 ## setup
-1. **install or upgrade node version**
+**install or upgrade node version**
 
 to install: https://nodejs.org/en/download/
 
@@ -21,11 +21,11 @@ to upgrade, run in terminal:
 
 `sudo n stable`
 
-2. **install angular cli**
+**install angular cli**
 
 `sudo npm install -g @angular/cli`
 
-3. **create workspace** 
+**create workspace** 
 
 `ng new angular-app`
 
