@@ -132,8 +132,8 @@ in this way could support right to left languages like arabic
 
 
 ## references
-https://angular.io/guide/i18n-overview
-https://github.com/ngx-translate/core
-https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-angular-app-with-ngx-translate-new
-https://www.digitalocean.com/community/tutorials/angular-ngx-translate
+https://angular.io/guide/i18n-overview  
+https://github.com/ngx-translate/core  
+https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-angular-app-with-ngx-translate-new  
+https://www.digitalocean.com/community/tutorials/angular-ngx-translate  
 https://medium.com/@mustafasaeed007/angular-localization-to-support-right-to-left-languages-7225a6c71eef
