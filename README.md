@@ -124,8 +124,8 @@ and then can add buttons to switch between languages in app.component.html
 ```
 in this way could support right to left languages like arabic
 
-3. result when english button is clicked
-![english translation](src/assets/images/english-test.png)
+3. results when english/hindi buttons are clicked
+ 
+<img width="308" alt="english-test" src="https://user-images.githubusercontent.com/39142854/212488539-f8e13cfe-35b8-4355-a772-afcbde6c59f2.png">
 
-result when hindi button is clicked
-![hindi translation](src/assets/images/hindi-test.png)
+<img width="286" alt="hindi-test" src="https://user-images.githubusercontent.com/39142854/212488560-c07ddd4b-e54b-47ea-8728-f1590fc1f9ac.png">
