@@ -1,9 +1,26 @@
 # angular-app
 
-## agenda
-to show how to add internationalization (i18n) to your angular application
+## introduction
 
-## setup
+this project shows a simple example of how to add internationalization (i18n) to your angular application by using the ngx-translate library
+
+### terms
+- **internationalization** (i18n) is the process of designing and preparing your project for use in different locales around the world 
+- **localization** (l10n) is the process of building different versions of your project for different locales
+- **locale** is a region where people speak a particular language or language variant
+
+### process
+- to internationalize our angular application, we need to localize it first. localization requires separating the content that is configurable and can be translated
+- by creating key value pairs in the languages our application would support, we can localize the application to use different translation (JSON) files. e.g. **en.json** for English, **fr.json** for French, **ar.json** for Arabic etc.
+- internationalization is setting up the app’s module to use the translation files. we will do this with the help of a third-party package [ngx-translate](https://github.com/ngx-translate/core) e.g. <label> {{ ‘phone’ | **translate** }} </label>
+- once set up, all fields/validation messages/button text in our application’s HTML pages won’t be hardcoded. they will be replaced with a translate pipe. for any text that needs to be configured, the key’s value would have to be updated in the translation files which would then reflect on frontend
+
+### benefits
+- **web accessibility**: internationalizing your application makes it accessible to users from any culture, region or language 
+- **code abstraction**: change in one place (key-value pairs file) reflects in all places used
+- **supports bidirectional text**: helpful when translating from left to right languages like English to right to left languages like Arabic
+
+## setup workspace
 **1. install or upgrade node version**
 
 - to install: https://nodejs.org/en/download/
@@ -16,7 +33,7 @@ node -v
 npm --version
 ```
 
-- to upgrade, run in terminal:
+- to upgrade (on mac), run in terminal:
 
 ```
 sudo npm cache clean -f
@@ -46,9 +63,19 @@ npm i @ngx-translate/core
 npm i @ngx-translate/http-loader
 ```
 
+**5. create i18n folder**  
+create a folder called i18n within the assets folder. this will hold json files for different translations as key-value pairs. 
+```
+// src > assets > i18n > en.json, ar.json, fr.json, hi.json
+// en.json could be 
+{
+  "hello": "Hello",
+  "descr": "this is a test"
+}
+```
 
 ## setup app module 
-1. in app.module.ts, import the following packages to use ngx-translate  
+1. in app.module.ts, import the following packages to use ngx-translate library
 
 ```
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
@@ -63,7 +90,7 @@ import { HttpClient } from "@angular/common/http";
   }
 ```
 
-3. in app.module.ts, import TranslateModule in @NgModule with the loader specs as below
+3. in app.module.ts, import TranslateModule in @NgModule with the loader specs shown below
 ```
 @NgModule{
 imports: [
@@ -82,7 +109,7 @@ TranslateModule.forRoot({
 
 ## setup app component 
 
-1. in app.component.ts, import TranslateService
+1. in app.component.ts, import the TranslateService API
 ```
 import { TranslateService } from "@ngx-translate/core";
 ```
@@ -99,30 +126,29 @@ constructor(private translateService: TranslateService){
 
 ## how to use 
 
-1. in html, values are pulled using the translate pipe 
+1. in html, translation values can be pulled using the translate pipe 
 so if en.json was
 ```
 {
   "hello": "Hello"
 }
 ```
-then can pass key through translate pipe in html elements to get values
+then passing the key through the translate pipe in html elements retrieves the translation value
 ```
 <h1>{{ 'hello' | translate }}</h1>
 ```
 
-2. to support multiple translations, can add a function in app.component.ts 
+2. to support multiple translations, add a function in app.component.ts to change the language currently being used
 ```
 changeLanguage(lang: string){
 	this.translateService.use(lang);
 }
 ```
-and then can add buttons to switch between languages in app.component.html
+and then add buttons to switch between languages in app.component.html
 ```
 <buttton (click)="changeLanguage('hi')">Hindi</button>
 <buttton (click)="changeLanguage('en')">English</button>
 ```
-in this way could support right to left languages like arabic
 
 3. results when english/hindi buttons are clicked
  
