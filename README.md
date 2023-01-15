@@ -66,32 +66,36 @@ npm i @ngx-translate/http-loader
 **5. create i18n folder**  
 create a folder called i18n within the assets folder. this will hold json files for different translations as key-value pairs. 
 ```
-// src > assets > i18n > en.json, ar.json, fr.json, hi.json
-// en.json could be 
+/*
+src > assets > i18n > en.json, ar.json, fr.json, hi.json
+en.json could be 
+*/
+```
+```json
 {
   "hello": "Hello",
-  "descr": "this is a test"
+  "descr": "This is a test"
 }
 ```
 
 ## setup app module 
 1. in app.module.ts, import the following packages to use ngx-translate library
 
-```
+```ts
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient } from "@angular/common/http";
 ```
 
 2. in app.module.ts, create a custom TranslateLoader which needs to be an export function for AoT compilation
-```
+```ts
   export function HttpLoaderFactory(http: HttpClient){
 	  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
   }
 ```
 
-3. in app.module.ts, import TranslateModule in @NgModule with the loader specs shown below
-```
+3. in app.module.ts, import TranslateModule (and HttpClientModule if not already done so) in @NgModule with the loader specs shown below
+```ts
 @NgModule{
 imports: [
 // ...
@@ -110,12 +114,12 @@ TranslateModule.forRoot({
 ## setup app component 
 
 1. in app.component.ts, import the TranslateService API
-```
+```ts
 import { TranslateService } from "@ngx-translate/core";
 ```
 
 2. add parameter to constructor and set default language to English
-```
+```ts
 constructor(private translateService: TranslateService){
 	// fallback when translation not found in current lang
 	this.translateService.setDefaultLang('en');
@@ -128,24 +132,24 @@ constructor(private translateService: TranslateService){
 
 1. in html, translation values can be pulled using the translate pipe 
 so if en.json was
-```
+```json
 {
   "hello": "Hello"
 }
 ```
 then passing the key through the translate pipe in html elements retrieves the translation value
-```
+```html
 <h1>{{ 'hello' | translate }}</h1>
 ```
 
 2. to support multiple translations, add a function in app.component.ts to change the language currently being used
-```
+```ts
 changeLanguage(lang: string){
 	this.translateService.use(lang);
 }
 ```
 and then add buttons to switch between languages in app.component.html
-```
+```html
 <buttton (click)="changeLanguage('hi')">Hindi</button>
 <buttton (click)="changeLanguage('en')">English</button>
 ```
