@@ -2,7 +2,7 @@
 
 ## introduction
 
-a simple example of how to add internationalization (i18n) to your angular application using the ngx-translate library
+a simple example to show how to add internationalization to an angular app using the ngx-translate library
 
 ### terms
 - **internationalization** (i18n) is the process of designing and preparing your project for use in different locales around the world 
