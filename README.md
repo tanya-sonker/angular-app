@@ -12,7 +12,7 @@ this project shows a simple example of how to add internationalization (i18n) to
 ### process
 - to internationalize our angular application, we need to localize it first. localization requires separating the content that is configurable and can be translated
 - by creating key value pairs in the languages our application would support, we can localize the application to use different translation (JSON) files. e.g. **en.json** for English, **fr.json** for French, **ar.json** for Arabic etc.
-- internationalization is setting up the app’s module to use the translation files. we will do this with the help of a third-party package [ngx-translate](https://github.com/ngx-translate/core) e.g. <label> {{ ‘phone’ | **translate** }} </label>
+- internationalization is setting up the app’s module to use the translation files. we will do this with the help of a third-party library [ngx-translate](https://github.com/ngx-translate/core) e.g. <label> {{ ‘phone’ | **translate** }} </label>
 - once set up, all fields/validation messages/button text in our application’s HTML pages won’t be hardcoded. they will be replaced with a translate pipe. for any text that needs to be configured, the key’s value would have to be updated in the translation files which would then reflect on frontend
 
 ### benefits
